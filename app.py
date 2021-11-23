@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
 import requests
+import const
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def index(ticker):
 
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
-        'x-rapidapi-key': "3881371422mshef5287c1e084505p1b5e4cjsn4e06a31bae67"
+        'x-rapidapi-key': const.RAPID_API_KEY
         }
 
     response = requests.request("GET", url, headers=headers, params=querystring)

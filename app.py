@@ -6,19 +6,14 @@ app = Flask(__name__)
 
 @app.route('/<ticker>', methods=['GET'])
 def index(ticker):
-
     url = "https://yh-finance.p.rapidapi.com/stock/v2/get-profile"
-
     querystring = {"symbol":ticker,"region":"US"}
-
     headers = {
         'x-rapidapi-host': "yh-finance.p.rapidapi.com",
         'x-rapidapi-key': const.RAPID_API_KEY
         }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
-
-
     res = response.json()
 
     data = {
